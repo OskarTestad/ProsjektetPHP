@@ -47,6 +47,7 @@
                 <th>Fødselsdato</th>
                 <th>Kjønn</th>
                 <th>Interesser</th>
+                <th>Interesser2</th>
                 <th>Fag Aktiviteter</th>
                 <th>Medlem Siden</th>
                 <th>Kontigent Status</th>
@@ -70,6 +71,7 @@
                 echo "<td>" . $row['fødselsdato'] . "</td>";
                 echo "<td>" . $row['kjønn'] . "</td>";
                 echo "<td>" . $row['interesser'] . "</td>";
+                echo "<td>" . $row['interesser2'] . "</td>";
                 echo "<td>" . $row['fagAktiviteter'] . "</td>";
                 echo "<td>" . $row['medlemSiden'] . "</td>";
                 echo "<td>" . $row['kontigentStatus'] . "</td>";

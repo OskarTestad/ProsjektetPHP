@@ -46,8 +46,8 @@
 
 
             <div id="box">
-                <div class="box-top">Rediger eksisterende bruker</div>
-                <div class="box-panel"><a href="redigerBruker.php">Rediger brukere</a></div>
+                <div class="box-top">Aktiviteter</div>
+                <div class="box-panel"><a href="kursaktiviteter.php">Aktiviteter</a></div>
             </div>
 
 

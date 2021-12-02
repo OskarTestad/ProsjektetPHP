@@ -36,7 +36,7 @@ echo '<font color="red">Email field is empty.</font><br>';
 } else {
     echo "Medlem oppdatert";
 $result = mysqli_query($conn, "UPDATE medlemmer SET fornavn = '$fornavn' , etternavn ='$etternavn', brukernavn ='$brukernavn', gateadresse = '$gateadresse', postnr ='$postnummer', poststed ='$poststed', epost ='$epost', telefon ='$telefon',
-fødselsdato ='$fødselsdato', kjønn ='$kjønn', interesser ='$interesser', interesser2 ='$interesser',fagAktiviteter ='$fagaktiviteter', medlemSiden ='$medlemSiden', kontigentStatus ='$kontigentstatus' WHERE medlemID= $id");
+fødselsdato ='$fødselsdato', kjønn ='$kjønn', interesser ='$interesser', interesser2 ='$interesser2',fagAktiviteter ='$fagaktiviteter', medlemSiden ='$medlemSiden', kontigentStatus ='$kontigentstatus' WHERE medlemID= $id");
 header("Location: eksisterendeBrukere.php");
 }
 }
