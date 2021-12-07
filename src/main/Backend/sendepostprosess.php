@@ -41,6 +41,7 @@ try {
             /* Meldingstekst for HTML-mottakere */
         
         $mld  = "Kjære " . $fnavn . ". <br><br>";
+        $mld  = '<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">Bekreft din registrering</a> <br><br>';
         $mld .= $melding . "<br><br>";
 
         $footer = "Regards<br/><br/>";
@@ -72,7 +73,6 @@ try {
         $mail->send();
 
         echo "E-post er sendt";
-        header("Location: eksisterendeBrukere.php");
         } catch(Exception $e) {
         echo "Noe gikk galt: " . $e->getMessage();
         }

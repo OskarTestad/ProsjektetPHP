@@ -10,8 +10,9 @@
 <?php
     include "include/include.php";
     
+
         if (isset($_POST["registrer"])) {
-            
+            $medlemID = $_POST['medlemID'];
             $fornavn = $_POST['fornavn'];
             $etternavn = $_POST['etternavn'];
             $brukernavn = $_POST['brukernavn'];
@@ -24,15 +25,15 @@
             $fdato = $_POST['fødselsdato'];
             $kjønn = $_POST['kjønn'];
             $interesser = $_POST['interesser'];
-            $interesser2 = $_POST['interesser2'];
-            $fagak = $_POST['fagAktiviteter'];
             $medlemSiden = $_POST['medlemSiden'];
             $kontstat = $_POST['kontigentStatus'];
+            $rolle = $_POST['rolle'];
             
-            $data = "INSERT INTO Medlemmer (fornavn, etternavn, brukernavn, passord, gateadresse, postnr, poststed, epost, telefon, fødselsdato, kjønn, interesser, interesser2, fagAktiviteter, medlemSiden, kontigentStatus)
-            VALUES ('$fornavn', '$etternavn', '$brukernavn', '$passord', '$gateadresse', '$postnr', '$poststed', '$epost', '$tlf', '$fdato', '$kjønn', '$interesser', '$interesser2', '$fagak', '$medlemSiden', '$kontstat')";
+            $data = "INSERT INTO Medlemmer (medlemID, fornavn, etternavn, brukernavn, passord, gateadresse, postnr, poststed, epost, telefon, fødselsdato, kjønn, interesser, medlemSiden, kontigentStatus)
+            VALUES ('$medlemID', '$fornavn', '$etternavn', '$brukernavn', '$passord', '$gateadresse', '$postnr', '$poststed', '$epost', '$tlf', '$fdato', '$kjønn', '$interesser', '$medlemSiden', '$kontstat');
+            INSERT INTO medlemrolle (medlemID, rolle_ID) VALUES ('$medlemID', '$rolle');";
 
-            mysqli_query($conn,$data);
+            mysqli_multi_query($conn,$data);
 
             echo "Medlem er registrert <br>";
         
@@ -45,6 +46,7 @@
     <h1>Oppgave 2</h1>
     <pre>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        Medlem ID: <input type="text" name="medlemID" placeholder="Medlem ID" required><br>
         Fornavn: <input type="text" name="fornavn" placeholder="Fornavn" required><br>
         Etternavn: <input type="text" name="etternavn" placeholder="Etternavn" required><br>
         Brukernavn: <input type="text" name="brukernavn" placeholder="Brukernavn" required><br>
@@ -59,10 +61,19 @@
                 <option value="mann">Mann</option>
                 <option value="dame">Dame</option>
                 <option value="annet">Annet</option>
-                </select>
+                </select><br>
         Interesser: <input type="text" name="interesser" placeholder= "Interesser" required><br>
-        Interesser 2: <input type="text" name="interesser2" placeholder= "Interesser" required><br>
-        Fag aktiviteter: <input type="text" name="fagAktiviteter" placeholder= "Fag Aktiviteter" required><br>
+        Velg rolle : <select name="rolle" required> 
+                <?php
+                    $sql = mysqli_query($conn, "SELECT  rolle_ID, roller FROM roller");
+                    while ($rad = $sql->fetch_assoc()){
+                        ?>
+                        <option value="<?php echo $rad['rolle_ID'];?>"><?php echo $rad['roller'];?></option>
+                        <?php
+                        } 
+                        ?>
+                        
+                </select><br>
         Medlem siden: <input type="date" name="medlemSiden" value="2011-05-05" required><br>
         Kontigentstatus:  <select name="kontigentStatus" value="Kontigentstatus" required> 
                 <option value="Betalt">Betalt</option>

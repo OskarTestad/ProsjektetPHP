@@ -20,7 +20,6 @@ include "include/include.php";
     $kjønn = $res['kjønn'];
 	$interesser = $res['interesser'];
 	$interesser2 = $res['interesser2'];
-    $fagaktiviteter = $res['fagAktiviteter'];
 	$medlemSiden = $res['medlemSiden'];
 	$kontigentstatus = $res['kontigentStatus'];
 }
@@ -89,10 +88,6 @@ include "include/include.php";
             <tr>
 				<td>Interesser2</td>
 				<td><input type="text" name="interesser2" value="<?php echo $interesser2;?>"></td>
-			</tr>
-            <tr>
-				<td>Fagaktiviteter</td>
-				<td><input type="text" name="fagaktiviteter" value="<?php echo $fagaktiviteter;?>"></td>
 			</tr>
             <tr>
 				<td>MedlemSiden</td>

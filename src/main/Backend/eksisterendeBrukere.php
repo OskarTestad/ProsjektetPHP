@@ -47,12 +47,12 @@
                 <th>Fødselsdato</th>
                 <th>Kjønn</th>
                 <th>Interesser</th>
-                <th>Interesser2</th>
-                <th>Fag Aktiviteter</th>
                 <th>Medlem Siden</th>
                 <th>Kontigent Status</th>
                 <th>Rediger</th>
+                <th>Slett medlem</th>
                 <th>Send epost</th>
+                <th>Se medlemsroller</th>
                 </tr>";
 
                 while($row = mysqli_fetch_array($result))
@@ -71,12 +71,12 @@
                 echo "<td>" . $row['fødselsdato'] . "</td>";
                 echo "<td>" . $row['kjønn'] . "</td>";
                 echo "<td>" . $row['interesser'] . "</td>";
-                echo "<td>" . $row['interesser2'] . "</td>";
-                echo "<td>" . $row['fagAktiviteter'] . "</td>";
                 echo "<td>" . $row['medlemSiden'] . "</td>";
                 echo "<td>" . $row['kontigentStatus'] . "</td>";
                 echo "<td><a href='redigerBruker.php?medlemID=$row[medlemID]'><font color='black'>Edit</a>";
+                echo "<td><a href='sletteprosess.php?medlemID=$row[medlemID]'><font color='black'>Slett</a>";
                 echo "<td><a href='sendepost.php?medlemID=$row[medlemID]'><font color='black'>Send epost</a>";
+                echo "<td><a href='medlemroller.php?medlemID=$row[medlemID]'><font color='black'>Se medlemroller</a>";
                 echo "</tr>";
                 }
                 echo "</table>";
@@ -98,6 +98,8 @@
 </head>
 
 <body>
+<br><br>
+
 	<a href="profil.php">Home</a>
 	<br><br>
     </body>
