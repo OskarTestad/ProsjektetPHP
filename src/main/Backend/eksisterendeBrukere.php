@@ -86,7 +86,7 @@
 <body>
 <br><br>
 
-	<a href="profil.php">Home</a>
+	<a href="profil.php">Tilbake</a>
 	<br><br>
     </body>
 </html>

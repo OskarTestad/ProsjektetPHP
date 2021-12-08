@@ -19,7 +19,6 @@ include "include/session.php";
 	$fødselsdato = $res['fødselsdato'];
     $kjønn = $res['kjønn'];
 	$interesser = $res['interesser'];
-	$interesser2 = $res['interesser2'];
 	$medlemSiden = $res['medlemSiden'];
 	$kontigentstatus = $res['kontigentStatus'];
 }
@@ -85,10 +84,7 @@ include "include/session.php";
 				<td>Interesser</td>
 				<td><input type="text" name="interesser" value="<?php echo $interesser;?>"></td>
 			</tr>
-            <tr>
-				<td>Interesser2</td>
-				<td><input type="text" name="interesser2" value="<?php echo $interesser2;?>"></td>
-			</tr>
+            
             <tr>
 				<td>MedlemSiden</td>
 				<td><input type="text" name="medlemSiden" value="<?php echo $medlemSiden;?>"></td>

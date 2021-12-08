@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+
+			<div class="login">
+            <form action ="<?php echo $_SERVER['PHP_SELF'];?>" method="request">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="text" name="bnavn" placeholder="Brukernavn" required="">
+					<input type="password" name="pword" placeholder="Password" required="">
+					<input type="submit" name="logginn" value="Logg Inn" id="submit">
+				</form>
+			</div>
+
+			
+	</div>
+</body>
+</html>

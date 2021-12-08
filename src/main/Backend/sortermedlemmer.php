@@ -1,15 +1,12 @@
-
-
-    <?php
+<?php
     include "include/include.php";
     include "include/session.php";
 
-    if (isset($_REQUEST["Aktiviteter"])) {
+    if (isset($_REQUEST["registrer"])) {
                     
-                    $interesse = $_REQUEST['interesse'];
+                    $interesse = $_REQUEST['Interesser'];
 
-                    $result = mysqli_query($conn, "SELECT medlemmer.medlemID, aktiviteter.aktivitetID, medlemmer.fornavn, medlemmer.etternavn, aktiviteter.navn FROM medlemmer 
-                    LEFT OUTER JOIN medaktivitet ON medlemmer.medlemID = medaktivitet.medlemID LEFT OUTER JOIN aktiviteter ON medaktivitet.aktivitetID = aktiviteter.aktivitetID WHERE medaktivitet.navn = $interesse");
+                    $result = mysqli_query($conn, "SELECT fornavn, etternavn, interesser FROM Medlemmer WHERE interesser = '$interesse'");
                 
                     if($result->num_rows == 0) {
                         echo "Det finnes ingen medlemmer med denne interessen";
@@ -18,7 +15,7 @@
                     <tr>
                     <th>Fornavn</th>
                     <th>Etternavn</th>
-                    <th>Aktivitet</th>
+                    <th>Interesse</th>
                     </tr>";
     
                     while($row = mysqli_fetch_array($result))
@@ -26,18 +23,18 @@
                     echo "<tr>";
                     echo "<td>" . $row['fornavn'] . "</td>";
                     echo "<td>" . $row['etternavn'] . "</td>";
-                    echo "<td>" . $row['navn'] . "</td>";
+                    echo "<td>" . $row['interesser'] . "</td>";
                     echo "</tr>";
                     }
                     echo "</table>";
     
-                    mysqli_close($conn);
                    }    
-            } elseif (isset($_REQUEST["interesser"])) {
+            }     
+    if (isset($_REQUEST["kontigentStatus"])) {
                     
-                $interesse = $_REQUEST['interesse'];
+                $kontigentStatus = $_REQUEST['KontigentStatus'];
 
-                $result = mysqli_query($conn, "SELECT fornavn, etternavn, interesser FROM Medlemmer WHERE interesser = '$interesse'");
+                $result = mysqli_query($conn, "SELECT fornavn, etternavn, kontigentStatus FROM Medlemmer WHERE kontigentStatus = '$kontigentStatus'");
             
                 if($result->num_rows == 0) {
                     echo "Det finnes ingen medlemmer med denne interessen";
@@ -46,7 +43,7 @@
                 <tr>
                 <th>Fornavn</th>
                 <th>Etternavn</th>
-                <th>Interesse</th>
+                <th>Kontigentstatus</th>
                 </tr>";
 
                 while($row = mysqli_fetch_array($result))
@@ -54,34 +51,18 @@
                 echo "<tr>";
                 echo "<td>" . $row['fornavn'] . "</td>";
                 echo "<td>" . $row['etternavn'] . "</td>";
-                echo "<td>" . $row['interesser'] . "</td>";
+                echo "<td>" . $row['kontigentStatus'] . "</td>";
                 echo "</tr>";
                 }
                 echo "</table>";
 
-                mysqli_close($conn);
-               }    
-        }
-?>  
+               }
+            }
+    ?>
 
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <br>
-    Aktivitet:  <select name="Aktiviteter" required> 
-                <?php
-                    $sql = mysqli_query($conn, "SELECT  aktivitetID, navn FROM aktiviteter WHERE startDato >= CURDATE()");
-                    while ($rad = $sql->fetch_assoc()){
-                        ?>
-                        <option value="<?php echo $rad['aktivitetID'];?>"><?php echo $rad['navn'];?></option>
-                        <?php
-                        } 
-                        ?>
-                        
-                </select><br>
-        <input type="submit" name="Aktiviteter" value="Velg">
-</form>
-
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post">
+        <h1>Sorter etter interesse</h1>
         Interesser:  <select name="Interesser" required> 
                 <?php
                     $sql = mysqli_query($conn, "SELECT  interesser, fornavn, etternavn FROM medlemmer");
@@ -93,11 +74,11 @@
                         ?>
                         
                 </select><br>
-                <input type="submit" name="interesser" value="Velg">
-</form>
+                <input type="submit" name="registrer" value="Velg">
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        Kontigentstatus:  <select name="Kontigentstatus" required> 
+
+        <h1>Sorter etter kontigentstatus</h1>
+        Kontigentstatus:  <select name="KontigentStatus" required> 
                 <?php
                     $sql = mysqli_query($conn, "SELECT  kontigentStatus, fornavn, etternavn FROM medlemmer");
                     while ($rad = $sql->fetch_assoc()){
@@ -110,3 +91,4 @@
                 </select><br>
                 <input type="submit" name="kontigentStatus" value="Velg">
 </form>
+<br><br><a href="profil.php">Tilbake</a>

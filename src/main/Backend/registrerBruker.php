@@ -1,5 +1,7 @@
 <html>
 <head>
+<a href="profil.php">Home</a>
+	<br><br>
 		<title>Index 6.2</title>
 		<meta charset="UTF-8"> 	
 	</head>
@@ -48,7 +50,7 @@
         Fornavn: <input type="text" name="fornavn" placeholder="Fornavn" required><br>
         Etternavn: <input type="text" name="etternavn" placeholder="Etternavn" required><br>
         Brukernavn: <input type="text" name="brukernavn" placeholder="Brukernavn" required><br>
-        Passord: <input type="text" name="passord" placeholder="Passord" required><br>
+        Passord: <input type="password" name="passord" placeholder="Passord" required><br>
         Gateadresse: <input type="text" name="gateadresse" placeholder = "Gateadresse" required><br>
         Postnummer: <input type="text" name="postnr" placeholder= "Postnummer" required><br>
         Poststed: <input type="text" name="poststed" placeholder= "Poststed" required><br>
@@ -92,7 +94,6 @@
 </head>
 
 <body>
-	<a href="profil.php">Home</a>
-	<br><br>
+	
     </body>
 </html>

@@ -3,7 +3,7 @@ include "include/session.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
   
-require 'C:/Xampp/htdocs/Prosjektet/ProsjektPHP/src/main/Backend/vendor/autoload.php';  
+require 'vendor/autoload.php';  
 $mail = new PHPMailer(true);
 
 if(isset($_POST['submit'])){
@@ -35,7 +35,7 @@ try {
         $mail->Port       = 587;  
     
         $mail->setFrom('oski1011@gmail.com', 'Oskar');
-        $mail->AddEmbeddedImage('C:/Xampp/htdocs/IS-115-PHP/Modul 9/default.jpg', "logo");
+       // $mail->AddEmbeddedImage('C:/Xampp/htdocs/IS-115-PHP/Modul 9/default.jpg', "logo");
         
 
             /* Meldingstekst for HTML-mottakere */
