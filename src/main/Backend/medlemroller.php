@@ -1,6 +1,7 @@
 <h1>Medlemsroller</h1>
 <?php
         include "include/include.php";
+        include "include/session.php";
         $medlemID = $_GET['medlemID'];
 
 

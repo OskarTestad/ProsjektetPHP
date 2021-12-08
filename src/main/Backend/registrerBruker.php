@@ -9,6 +9,7 @@
 <body>
 <?php
     include "include/include.php";
+    include "include/session.php";
     
 
         if (isset($_POST["registrer"])) {
@@ -34,10 +35,7 @@
             INSERT INTO medlemrolle (medlemID, rolle_ID) VALUES ('$medlemID', '$rolle');";
 
             mysqli_multi_query($conn,$data);
-
-            echo "Medlem er registrert <br>";
-        
-            
+            echo "Medlem er registrert <br>";   
         }
 
        

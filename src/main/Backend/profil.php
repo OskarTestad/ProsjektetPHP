@@ -50,6 +50,11 @@
                 <div class="box-panel"><a href="kursaktiviteter.php">Aktiviteter</a></div>
             </div>
 
+            <div id="box">
+                <div class="box-top">Sorter medlemmer</div>
+                <div class="box-panel"><a href="sortermedlemmer.php">Sorter medlemmer</a></div>
+            </div>
+
 
         </div>
 

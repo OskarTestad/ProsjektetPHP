@@ -1,5 +1,6 @@
 <?php
 include "include/include.php";
+include "include/session.php";
 $sql = "DELETE FROM medlemmer WHERE medlemID='" . $_GET["medlemID"] . "'";
 if (mysqli_query($conn, $sql)) {
     echo "Record deleted successfully";

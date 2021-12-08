@@ -10,6 +10,7 @@
     </body>
 </html>
 <?php
+include "include/session.php";
 include "include/include.php";
 $result = mysqli_query($conn,"SELECT * FROM Aktiviteter WHERE startDato >= CURDATE()");
                 

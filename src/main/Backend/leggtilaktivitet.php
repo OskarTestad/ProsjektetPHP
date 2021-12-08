@@ -8,6 +8,7 @@
     </style>
 <body>
 <?php
+    include "include/session.php";
     include "include/include.php";
     
         if (isset($_POST["registrer"])) {

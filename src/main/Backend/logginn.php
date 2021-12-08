@@ -62,14 +62,7 @@
 				</form>
 			</div>
 
-			<div class="signup">
-				<form action ="<?php echo $_SERVER['PHP_SELF'];?>" method="request">
-					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="bnavn" placeholder="Email" required="">
-					<input type="password" name="pword" placeholder="Password" required="">
-					<input type="submit" name="nybruker" value="Logg Inn" id= "submit">
-				</form>
-			</div>
+			
 	</div>
 </body>
 </html>

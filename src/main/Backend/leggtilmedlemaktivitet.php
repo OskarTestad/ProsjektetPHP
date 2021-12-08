@@ -1,6 +1,6 @@
 <?php
 include "include/include.php";
-
+include "include/session.php";
 $id = $_GET['aktivitetID'];
 
 $result = mysqli_query($conn, "SELECT * FROM aktiviteter WHERE aktivitetID = $id");

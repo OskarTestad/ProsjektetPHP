@@ -1,5 +1,6 @@
 <?php
 include "include/include.php";
+include "include/session.php";
 
     $id = $_GET['medlemID'];
 
