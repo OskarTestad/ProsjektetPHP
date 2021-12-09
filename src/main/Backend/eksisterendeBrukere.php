@@ -37,7 +37,6 @@
                 <th>Medlem Siden</th>
                 <th>Kontigent Status</th>
                 <th>Rediger</th>
-                <th>Slett medlem</th>
                 <th>Send epost</th>
                 <th>Se medlemsroller</th>
                 </tr>";
@@ -61,7 +60,6 @@
                 echo "<td>" . $row['medlemSiden'] . "</td>";
                 echo "<td>" . $row['kontigentStatus'] . "</td>";
                 echo "<td><a href='redigerBruker.php?medlemID=$row[medlemID]'><font color='black'>Edit</a>";
-                echo "<td><a href='sletteprosess.php?medlemID=$row[medlemID]'><font color='black'>Slett</a>";
                 echo "<td><a href='sendepost.php?medlemID=$row[medlemID]'><font color='black'>Send epost</a>";
                 echo "<td><a href='medlemroller.php?medlemID=$row[medlemID]'><font color='black'>Se medlemroller</a>";
                 echo "</tr>";
