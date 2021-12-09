@@ -1,10 +1,12 @@
 <?php
 include "include/include.php";
 include "include/session.php";
+//Henter aktivitetID fra URL og definerer id
 $id = $_GET['medlemID'];
 
 $result = mysqli_query($conn, "SELECT * FROM Medlemmer WHERE medlemID = $id");
 
+//Hvis "update" knappen trykkes så skal inforamsjonen som står i html formene oppdateres og sendes til databasen. 
 if(isset($_POST['update']))
 {
 $id = mysqli_real_escape_string($conn, $_POST['medlemID']);
@@ -22,6 +24,7 @@ $interesser = mysqli_real_escape_string($conn, $_POST['interesser']);
 $medlemSiden = mysqli_real_escape_string($conn, $_POST['medlemSiden']);
 $kontigentstatus = mysqli_real_escape_string($conn, $_POST['kontigentStatus']);
 
+//Mulig feilmelding hvis feltene er tomme
 if(empty($fornavn) || empty($etternavn) || empty($epost)) {	
 if(empty($fornavn)) {
 echo '<font color="red">Name field is empty.</font><br>';

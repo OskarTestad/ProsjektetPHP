@@ -1,8 +1,10 @@
 <?php
 include "include/include.php";
 include "include/session.php";
-    $id = $_GET['medlemID'];
+    //Henter medlemID fra URL og definerer medlemID 
+	$id = $_GET['medlemID'];
 
+	//Henter ut all inforamsjonen fra medlemmer der medlemID er det samme som medlemsID i URL, og printer ut informasjonen. 
     $result = mysqli_query($conn, "SELECT * FROM Medlemmer WHERE medlemID = $id");
 
     while($res = mysqli_fetch_array($result))
@@ -31,9 +33,9 @@ include "include/session.php";
 </head>
 
 <body>
-	<a href="profil.php">Home</a>
+	<a href="eksisterendeBrukere.php">Home</a>
 	<br><br>
-	
+	<!-- Hvis update kanppen trykkes sendes informajsonen til en ny prosess -->
 	<form name="form1" method="post" action="redigerprosess.php">
 		<table border="0">
             <tr>
@@ -84,7 +86,8 @@ include "include/session.php";
 				<td>Interesser</td>
 				<td><input type="text" name="interesser" value="<?php echo $interesser;?>"></td>
 			</tr>
-            
+
+
             <tr>
 				<td>MedlemSiden</td>
 				<td><input type="text" name="medlemSiden" value="<?php echo $medlemSiden;?>"></td>

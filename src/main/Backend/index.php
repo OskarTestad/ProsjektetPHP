@@ -1,7 +1,7 @@
 <?php
      include "../View/logginn.html";  
 	
-
+            //Innlogging funksjon som sjekker om de lokale brukernavn og passoird variablene som bruker skriver inn stemmer overens med det samme brukernavn og samme  hashet passord i databasen.
             if (isset($_REQUEST["logginn"])) {
 
                 $brukernavn = $_REQUEST["bnavn"];

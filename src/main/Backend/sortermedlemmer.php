@@ -2,6 +2,7 @@
     include "include/include.php";
     include "include/session.php";
 
+    //Hvis knappen "registrer" er valgt så vil medlemmer bli sortert etter den valgte interessen
     if (isset($_REQUEST["registrer"])) {
                     
                     $interesse = $_REQUEST['Interesser'];
@@ -29,7 +30,8 @@
                     echo "</table>";
     
                    }    
-            }     
+            }
+    //Hvis knappen "kontigentStatus" er valgt så vil medlemmer bli sortert etter den valgte kontigentstatusen.     
     if (isset($_REQUEST["kontigentStatus"])) {
                     
                 $kontigentStatus = $_REQUEST['KontigentStatus'];
@@ -65,6 +67,7 @@
         <h1>Sorter etter interesse</h1>
         Interesser:  <select name="Interesser" required> 
                 <?php
+                //Her fyller jeg html formet med verdier som eksisterer i databasen, dette gjør det enklere for bruker, og han har ikke mulighet til å hente ut en verdi som ikke eksiterer.
                     $sql = mysqli_query($conn, "SELECT  interesser, fornavn, etternavn FROM medlemmer");
                     while ($rad = $sql->fetch_assoc()){
                         ?>
@@ -80,6 +83,7 @@
         <h1>Sorter etter kontigentstatus</h1>
         Kontigentstatus:  <select name="KontigentStatus" required> 
                 <?php
+                //Her fyller jeg html formet med verdier som eksisterer i databasen, dette gjør det enklere for bruker, og han har ikke mulighet til å hente ut en verdi som ikke eksiterer.
                     $sql = mysqli_query($conn, "SELECT  kontigentStatus, fornavn, etternavn FROM medlemmer");
                     while ($rad = $sql->fetch_assoc()){
                         ?>

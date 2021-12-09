@@ -13,9 +13,9 @@
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     Aktivitetsnavn: <input type="text" name="navn" placeholder="Aktivitetsnavn" required><br>
     Aktivitetsansvarlig: <input type="text" name="ansvarlig" placeholder="Aktivitetsansvarlig" required><br>
-    Start Dato: <input type="date" name="startdato" value="2011-05-05" required><br>
-    Slutt Dato: <input type="date" name="sluttdato" value="2011-05-05" required><br>
-    Dagens Dato: <input type="date" name="dagensdato" value="2011-05-05" required><br>
+    Start Dato: <input type="date" name="startdato" value="<?php echo date('Y-m-d');?>" required><br>
+    Slutt Dato: <input type="date" name="sluttdato" value="<?php echo date('Y-m-d');?>" required><br>
+    Dagens Dato: <input type="date" name="dagensdato" value="<?php echo date('Y-m-d');?>" required><br>
     <input type="submit" name="registrer" value="Registrér">
 </form>
 </pre>
@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<a href="profil.php">Home</a>
+<a href="kursaktiviteter.php">Home</a>
 <br><br>
 </body>
 </html>

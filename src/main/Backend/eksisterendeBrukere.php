@@ -9,7 +9,7 @@
     </style>
         
 	<body>
-        <h1>Eksisterende brukere</h1>
+        <h1>Alle medlemmer</h1>
         
         
         <?php
@@ -17,6 +17,7 @@
                 include "include/include.php";
                 include "include/session.php";
 
+                //Query som henter inn all informasjon om medlemmet i Medlemtabellen
                 $result = mysqli_query($conn,"SELECT * FROM Medlemmer");
 
                 echo "<table border='1'>
@@ -43,7 +44,7 @@
 
                 while($row = mysqli_fetch_array($result))
                 {
-                    
+                //Printer verdiene fra queryen inn en html tabell som blir synlig for brukeren, de siste 4 kolonnene i tabellen sender brukeren videre til andre funskjoner, som rediger, slett, send epost og se medlemsroller     
                 echo "<tr>";
                 echo "<td>" . $row['medlemID'] . "</td>";
                 echo "<td>" . $row['fornavn'] . "</td>";

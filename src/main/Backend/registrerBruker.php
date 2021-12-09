@@ -13,7 +13,7 @@
     include "include/include.php";
     include "include/session.php";
     
-
+        //Hvis knappen "registrer" er trykket på, registerer man en ny bruker med informasjonen om medlemmet. 
         if (isset($_POST["registrer"])) {
             $medlemID = $_POST['medlemID'];
             $fornavn = $_POST['fornavn'];
@@ -32,6 +32,7 @@
             $kontstat = $_POST['kontigentStatus'];
             $rolle = $_POST['rolle'];
             
+            //Dette er en multiquery som INSERT INTO i to ulike tabeller, legger all informasjon inn i medlemtabellen og rolleinformasjon inn i medlemrolle
             $data = "INSERT INTO Medlemmer (medlemID, fornavn, etternavn, brukernavn, passord, gateadresse, postnr, poststed, epost, telefon, fødselsdato, kjønn, interesser, medlemSiden, kontigentStatus)
             VALUES ('$medlemID', '$fornavn', '$etternavn', '$brukernavn', '$passord', '$gateadresse', '$postnr', '$poststed', '$epost', '$tlf', '$fdato', '$kjønn', '$interesser', '$medlemSiden', '$kontstat');
             INSERT INTO medlemrolle (medlemID, rolle_ID) VALUES ('$medlemID', '$rolle');";
@@ -56,7 +57,7 @@
         Poststed: <input type="text" name="poststed" placeholder= "Poststed" required><br>
         E-post: <input type="email" name="epost" placeholder="E-post" required><br>
         Telefon: <input type="tel" name="telefon" placeholder="Mobilnummer" required><br>
-        Fødselsdato: <input type="date" name="fødselsdato" value="2011-05-05" required><br>
+        Fødselsdato: <input type="date" name="fødselsdato" value="<?php echo date('Y-m-d');?>" required><br>
         Kjønn:  <select name="kjønn" value="kjønn" required> 
                 <option value="mann">Mann</option>
                 <option value="dame">Dame</option>
@@ -65,6 +66,7 @@
         Interesser: <input type="text" name="interesser" placeholder= "Interesser" required><br>
         Velg rolle : <select name="rolle" required> 
                 <?php
+                ////Her fyller jeg html formet med verdier som eksisterer i databasen, dette gjør det enklere for bruker, og han har ikke mulighet til å hente ut en verdi som ikke eksiterer.
                     $sql = mysqli_query($conn, "SELECT  rolle_ID, roller FROM roller");
                     while ($rad = $sql->fetch_assoc()){
                         ?>
@@ -74,7 +76,7 @@
                         ?>
                         
                 </select><br>
-        Medlem siden: <input type="date" name="medlemSiden" value="2011-05-05" required><br>
+        Medlem siden: <input type="date" name="medlemSiden" value="<?php echo date('Y-m-d');?>" required><br>
         Kontigentstatus:  <select name="kontigentStatus" value="Kontigentstatus" required> 
                 <option value="Betalt">Betalt</option>
                 <option value="Ikke betalt">Ikke betalt</option>

@@ -1,4 +1,6 @@
 <?php
+//https://www.geeksforgeeks.org/how-to-send-an-email-using-phpmailer/ phpmailer/composer
+
 include "include/session.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

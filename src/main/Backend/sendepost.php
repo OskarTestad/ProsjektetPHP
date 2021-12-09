@@ -1,7 +1,7 @@
 <?php
 include "include/include.php";
 include "include/session.php";
-
+	//Henter inn verdier fra databasen og fyller html formsene med verdier som tilhører medlemmet valgt
     $id = $_GET['medlemID'];
 
     $result = mysqli_query($conn, "SELECT * FROM Medlemmer WHERE medlemID = $id");
@@ -24,7 +24,8 @@ include "include/session.php";
 <title>Form submission</title>
 </head>
 <body>
-
+<a href="eksisterendeBrukere.php">Home</a><br><br>
+<a href="sendEpostTilFlere.php"><h1>Send epost til ulike grupper</h1></a><br><br>
 <form name="form1" method="post" action="sendepostprosess.php">
 		<table border="0">
             <tr>

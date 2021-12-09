@@ -12,6 +12,7 @@
 <?php
 include "include/session.php";
 include "include/include.php";
+//Henter ut alle fremtigdige aktiviteter fra aktivitetstabellen
 $result = mysqli_query($conn,"SELECT * FROM Aktiviteter WHERE startDato >= CURDATE()");
                 
 
@@ -28,6 +29,7 @@ $result = mysqli_query($conn,"SELECT * FROM Aktiviteter WHERE startDato >= CURDA
 
                 while($row = mysqli_fetch_array($result))
                 {
+                //Printer verdiene fra queryen inn en html tabell som blir synlig for brukeren, den siste kolonnenen i tabellen sender brukeren videre til en funksjon som gjør det mulig å legge til et medlem på den valgte aktiviteten
                 echo "<tr>";
                 echo "<td>" . $row['aktivitetID'] . "</td>";
                 echo "<td>" . $row['navn'] . "</td>";
@@ -46,11 +48,13 @@ $result = mysqli_query($conn,"SELECT * FROM Aktiviteter WHERE startDato >= CURDA
 <h3>Se liste over alle medlemmer i den valgte aktiviteten</h3>
 
 <?php
+    //Sjekker om knappen "velg" er trykket
     if (isset($_POST["velg"])) {
 
         $aktivitet = $_POST['Aktiviteter'];
 
-
+        /*Henter ut verier fra 2 ulike tabeller, ved å bruke LEFT OUTER JOIN gjennom vår "aktivitetshub" medaktivitet. Dette er for å kunne printe ut navnet på aktiviteten. 
+        Denne queryen kjøres dersom inputten fra html formet nedenfor er av samme verdi som finnes i databasen.*/ 
         $resultat = mysqli_query($conn, "SELECT medlemmer.medlemID, aktiviteter.aktivitetID, medlemmer.fornavn, medlemmer.etternavn, aktiviteter.navn FROM medlemmer 
         LEFT OUTER JOIN medaktivitet ON medlemmer.medlemID = medaktivitet.medlemID LEFT OUTER JOIN aktiviteter ON medaktivitet.aktivitetID = aktiviteter.aktivitetID WHERE medaktivitet.aktivitetID = $aktivitet");
 
@@ -82,6 +86,7 @@ $result = mysqli_query($conn,"SELECT * FROM Aktiviteter WHERE startDato >= CURDA
     <br>
     Aktivitet:  <select name="Aktiviteter" required> 
                 <?php
+                //Her fyller jeg html formet med verdier som eksisterer i databasen, dette gjør det enklere for bruker, og han har ikke mulighet til å hente ut en verdi som ikke eksiterer. 
                     $sql = mysqli_query($conn, "SELECT  aktivitetID, navn FROM aktiviteter WHERE startDato >= CURDATE()");
                     while ($rad = $sql->fetch_assoc()){
                         ?>

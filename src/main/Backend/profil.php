@@ -1,4 +1,5 @@
 <?php
+    //Her bruker vi en annen type session der vi har lagt til en velkomst medling til brukeren. 
    session_start();
     
    if(isset($_SESSION["brukernavn"]) !== true) {

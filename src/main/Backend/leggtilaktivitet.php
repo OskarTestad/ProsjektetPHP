@@ -3,7 +3,7 @@
     include "include/session.php";
     include "include/include.php";
     include "../View/Leggtilaktivitet.html";
-    
+        //Hvis "registrer" knappen er trykket så legger man til en ny aktivitet i aktivitettabellen der verdiene er, det bruker har lagt inn. 
         if (isset($_POST["registrer"])) {
             
             $navn = $_POST['navn'];
